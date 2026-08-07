@@ -41,9 +41,52 @@ const Contact = () => {
   };
 
   const contactInfo = [
-    { icon: "📧", label: "Email", value: SITE.email, link: `mailto:${SITE.email}` },
-    { icon: "💼", label: "LinkedIn", value: "Kassee Homolka", link: SITE.linkedin },
-    { icon: "📍", label: "Location", value: SITE.location, link: null },
+    {
+      icon: (
+        <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+          />
+        </svg>
+      ),
+      label: "Email",
+      value: SITE.email,
+      link: `mailto:${SITE.email}`,
+    },
+    {
+      icon: (
+        <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M13.828 10.172a4 4 0 010 5.656l-3 3a4 4 0 01-5.656-5.656l1.5-1.5M10.172 13.828a4 4 0 010-5.656l3-3a4 4 0 015.656 5.656l-1.5 1.5"
+          />
+        </svg>
+      ),
+      label: "LinkedIn",
+      value: "Kassee Homolka",
+      link: SITE.linkedin,
+    },
+    {
+      icon: (
+        <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"
+          />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+      ),
+      label: "Location",
+      value: SITE.location,
+      link: null,
+    },
   ];
 
   return (
@@ -89,7 +132,7 @@ const Contact = () => {
               {contactInfo.map((info) => {
                 const content = (
                   <>
-                    <div className="text-3xl" aria-hidden="true">{info.icon}</div>
+                    <div className="text-primary-text" aria-hidden="true">{info.icon}</div>
                     <div className="flex-1">
                       <div className="text-sm text-foreground/60">{info.label}</div>
                       <div className="text-foreground">{info.value}</div>
@@ -140,6 +183,12 @@ const Contact = () => {
                 >
                   <label htmlFor={field} className="mb-2 block text-sm font-medium text-foreground capitalize">
                     {field}
+                    {field !== "subject" && !formData[field] && (
+                      <span className="text-flamingo-text" aria-hidden="true">
+                        {" "}
+                        *
+                      </span>
+                    )}
                   </label>
                   <input
                     type={field === "email" ? "email" : "text"}
@@ -150,7 +199,7 @@ const Contact = () => {
                     onChange={handleChange}
                     onFocus={() => setFocusedField(field)}
                     onBlur={() => setFocusedField(null)}
-                    required
+                    required={field !== "subject"}
                     className="w-full rounded-lg border-2 bg-dark px-4 py-3 text-foreground outline-none transition-colors"
                     style={{ borderColor: focusedField === field ? "#3f98e0" : "rgba(63, 152, 224, 0.2)" }}
                   />
@@ -173,7 +222,6 @@ const Contact = () => {
                   onChange={handleChange}
                   onFocus={() => setFocusedField("message")}
                   onBlur={() => setFocusedField(null)}
-                  required
                   rows="5"
                   className="w-full resize-none rounded-lg border-2 bg-dark px-4 py-3 text-foreground outline-none transition-colors"
                   style={{ borderColor: focusedField === "message" ? "#3f98e0" : "rgba(63, 152, 224, 0.2)" }}

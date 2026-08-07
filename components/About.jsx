@@ -223,7 +223,7 @@ const About = () => {
             whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(63, 152, 224, 0.5)" }}
             whileTap={{ scale: 0.95 }}
           >
-            Download Resume
+            Download Resume ↗
           </motion.a>
         </motion.div>
       </div>

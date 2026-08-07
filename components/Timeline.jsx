@@ -200,7 +200,7 @@ const Timeline = () => {
             whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(63, 152, 224, 0.5)" }}
             whileTap={{ scale: 0.95 }}
           >
-            View Full Resume
+            View Full Resume ↗
           </motion.a>
         </motion.div>
       </div>

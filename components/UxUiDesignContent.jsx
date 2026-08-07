@@ -5,9 +5,7 @@ import Navigation from "@/components/Navigation";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import StorySection from "@/components/StorySection";
-
-const FIGMA_PROTOTYPE_URL =
-  "https://www.figma.com/proto/FR0pMPcA7FLlsxgrB48I4J/GenMobile-Case-Study?node-id=1-410&t=0ITh4XWGfQlBl3xI-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A811";
+import { BASE_PATH } from "@/lib/config";
 
 const stories = [
   {
@@ -100,15 +98,19 @@ const UxUiDesignContent = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="overflow-hidden rounded-2xl border border-foreground/10 bg-surface/50"
+            className="flex flex-col items-center gap-6 rounded-2xl border border-foreground/10 bg-surface/50 p-12 text-center"
           >
-            <iframe
-              title="GenMobile Case Study – Figma Prototype"
-              src={`https://www.figma.com/embed?embed_host=share&url=${encodeURIComponent(FIGMA_PROTOTYPE_URL)}`}
-              className="h-[600px] w-full md:h-[800px]"
-              allowFullScreen
-              loading="lazy"
-            />
+            <p className="max-w-md text-foreground/60">
+              Walk through the full interactive prototype, screen by screen.
+            </p>
+            <motion.a
+              href={`${BASE_PATH}/ux-ui-design/genmobile-case-study/`}
+              className="rounded-lg bg-gradient-to-r from-primary to-violet px-8 py-3 font-semibold text-white"
+              whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(63, 152, 224, 0.5)" }}
+              whileTap={{ scale: 0.95 }}
+            >
+              View Interactive Case Study →
+            </motion.a>
           </motion.div>
         </div>
       </section>

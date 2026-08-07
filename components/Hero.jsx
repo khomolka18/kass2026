@@ -122,7 +122,7 @@ const Hero = ({ revealed = true }) => {
             whileHover={{ scale: 1.05, backgroundColor: "rgba(63, 152, 224, 0.1)" }}
             whileTap={{ scale: 0.95 }}
           >
-            Resume
+            Resume ↗
           </motion.a>
         </motion.div>
       </div>

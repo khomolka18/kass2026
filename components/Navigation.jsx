@@ -121,7 +121,7 @@ const Navigation = () => {
                 whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(63, 152, 224, 0.5)" }}
                 whileTap={{ scale: 0.95 }}
               >
-                Resume
+                Resume ↗
               </motion.a>
             </div>
 
@@ -195,7 +195,7 @@ const Navigation = () => {
             transition={{ delay: navItems.length * 0.1 }}
             className="rounded-lg bg-primary px-6 py-3 text-center font-semibold text-white"
           >
-            Download Resume
+            Download Resume ↗
           </motion.a>
         </div>
       </motion.div>
