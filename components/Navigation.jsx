@@ -1,8 +1,9 @@
 "use client";
 
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { RESUME_URL } from "@/lib/config";
+import { BASE_PATH, RESUME_URL } from "@/lib/config";
 
 const navItems = [
   { name: "Home", href: "#home" },
@@ -13,6 +14,8 @@ const navItems = [
 ];
 
 const Navigation = () => {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -23,6 +26,8 @@ const Navigation = () => {
   });
 
   useEffect(() => {
+    if (!isHome) return;
+
     const handleScroll = () => {
       const sections = navItems.map((item) => item.href.slice(1));
       const scrollPosition = window.scrollY + 100;
@@ -41,7 +46,7 @@ const Navigation = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isHome]);
 
   const scrollToSection = (href) => {
     const element = document.querySelector(href);
@@ -49,6 +54,16 @@ const Navigation = () => {
       element.scrollIntoView({ behavior: "smooth" });
       setIsMobileMenuOpen(false);
     }
+  };
+
+  // On the homepage, nav items are same-page anchor scrolls. Elsewhere,
+  // they must link back to the homepage's sections instead of scrolling
+  // to an id that doesn't exist on the current page.
+  const hrefFor = (href) => (isHome ? href : `${BASE_PATH}/${href}`);
+  const handleNavClick = (href) => (e) => {
+    if (!isHome) return;
+    e.preventDefault();
+    scrollToSection(href);
   };
 
   return (
@@ -64,11 +79,8 @@ const Navigation = () => {
         <div className="mx-auto max-w-7xl px-4 md:px-8">
           <div className="flex h-16 items-center justify-between md:h-20">
             <motion.a
-              href="#home"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection("#home");
-              }}
+              href={hrefFor("#home")}
+              onClick={handleNavClick("#home")}
               className="font-display text-2xl font-bold"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -78,15 +90,12 @@ const Navigation = () => {
 
             <div className="hidden items-center space-x-8 md:flex">
               {navItems.map((item) => {
-                const isActive = activeSection === item.href.slice(1);
+                const isActive = isHome && activeSection === item.href.slice(1);
                 return (
                   <motion.a
                     key={item.name}
-                    href={item.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection(item.href);
-                    }}
+                    href={hrefFor(item.href)}
+                    onClick={handleNavClick(item.href)}
                     className={`relative text-sm font-medium transition-colors ${
                       isActive ? "text-primary" : "text-white/70 hover:text-white"
                     }`}
@@ -150,12 +159,16 @@ const Navigation = () => {
       >
         <div className="flex flex-col space-y-6 p-6">
           {navItems.map((item, index) => {
-            const isActive = activeSection === item.href.slice(1);
+            const isActive = isHome && activeSection === item.href.slice(1);
             return (
               <motion.a
                 key={item.name}
-                href={item.href}
+                href={hrefFor(item.href)}
                 onClick={(e) => {
+                  if (!isHome) {
+                    setIsMobileMenuOpen(false);
+                    return;
+                  }
                   e.preventDefault();
                   scrollToSection(item.href);
                 }}

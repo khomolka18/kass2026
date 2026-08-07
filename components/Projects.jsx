@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { SITE } from "@/lib/config";
+import { BASE_PATH } from "@/lib/config";
 
 const ProjectCard = ({ title, description, icon, gradient, link, tags }) => (
   <motion.div
@@ -41,7 +41,7 @@ const Projects = () => {
         "Led EchoStar's cross-brand design system spanning native mobile, TV, web, and internal tools — scalable architecture, training, and cross-functional adoption.",
       icon: "🧩",
       gradient: "bg-gradient-to-br from-primary/20 to-violet/20",
-      link: SITE.personalSite,
+      link: `${BASE_PATH}/design-systems/`,
       tags: ["Design Systems", "Figma", "Accessibility", "Cross-brand"],
     },
     {
@@ -50,7 +50,7 @@ const Projects = () => {
         "Responsive tools and experiences across telecom, streaming, and retail — including Kohl's, Boost Mobile, Sling, and GenMobile.",
       icon: "📱",
       gradient: "bg-gradient-to-br from-violet/20 to-flamingo/20",
-      link: SITE.personalSite,
+      link: `${BASE_PATH}/ux-ui-design/`,
       tags: ["Kohl's", "Boost Mobile", "Sling", "GenMobile"],
     },
     {
@@ -59,7 +59,7 @@ const Projects = () => {
         "When I'm not designing systems, I'm making things with my hands — macramé, charcoal sketches, and painting.",
       icon: "🎨",
       gradient: "bg-gradient-to-br from-flamingo/20 to-mint/20",
-      link: "#contact",
+      link: `${BASE_PATH}/inspiration/`,
       tags: ["Macramé", "Charcoal", "Painting", "Architecture"],
     },
   ];
