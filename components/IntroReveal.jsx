@@ -34,13 +34,16 @@ const IntroReveal = ({ onReveal }) => {
   useEffect(() => {
     setMounted(true);
     const alreadyShown = sessionStorage.getItem("kassee-intro-shown");
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    if (!alreadyShown) {
+    if (!alreadyShown && !prefersReducedMotion) {
       setShow(true);
       sessionStorage.setItem("kassee-intro-shown", "1");
       sessionStorage.removeItem("kassee-intro-pending");
     } else {
-      // Intro already played this session — reveal the rest of the page immediately.
+      // Intro already played this session, or the user has asked for reduced
+      // motion — skip the flip/spin timeline and reveal the page immediately.
+      if (!alreadyShown) sessionStorage.setItem("kassee-intro-shown", "1");
       onRevealRef.current?.();
     }
   }, []);
@@ -108,10 +111,10 @@ const IntroReveal = ({ onReveal }) => {
         >
           {LOGO_TEXT}
         </div>
-        <div ref={line1Ref} className="text-base text-white/80 md:text-xl" style={{ perspective: "600px" }}>
+        <div ref={line1Ref} className="text-base text-foreground/80 md:text-xl" style={{ perspective: "600px" }}>
           {LINE1_TEXT}
         </div>
-        <div ref={line2Ref} className="text-sm italic text-white/50 md:text-base" style={{ perspective: "600px" }}>
+        <div ref={line2Ref} className="text-sm italic text-foreground/60 md:text-base" style={{ perspective: "600px" }}>
           {LINE2_TEXT}
         </div>
       </div>

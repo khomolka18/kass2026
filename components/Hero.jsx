@@ -75,13 +75,10 @@ const Hero = ({ revealed = true }) => {
           transition={{ duration: 0.8 }}
         >
           <span className="text-gradient">{text}</span>
-          <motion.span animate={{ opacity: [1, 0] }} transition={{ duration: 0.8, repeat: Infinity }}>
-            |
-          </motion.span>
         </motion.h1>
 
         <motion.p
-          className="mx-auto mb-2 max-w-2xl text-xl text-white/80 md:text-2xl"
+          className="mx-auto mb-2 max-w-2xl text-xl text-foreground/80 md:text-2xl"
           initial={hidden}
           animate={revealed ? visible : hidden}
           transition={{ duration: 0.8, delay: 0.3 }}
@@ -90,7 +87,7 @@ const Hero = ({ revealed = true }) => {
         </motion.p>
 
         <motion.p
-          className="mx-auto mb-8 max-w-xl text-sm italic text-white/40"
+          className="mx-auto mb-8 max-w-xl text-sm italic text-foreground/60"
           initial={hidden}
           animate={revealed ? visible : hidden}
           transition={{ duration: 0.8, delay: 0.45 }}
@@ -121,7 +118,7 @@ const Hero = ({ revealed = true }) => {
             href={RESUME_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-lg border-2 border-primary px-8 py-3 font-semibold text-primary"
+            className="rounded-lg border-2 border-primary px-8 py-3 font-semibold text-primary-text"
             whileHover={{ scale: 1.05, backgroundColor: "rgba(63, 152, 224, 0.1)" }}
             whileTap={{ scale: 0.95 }}
           >

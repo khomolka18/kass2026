@@ -8,7 +8,6 @@ import Projects from "@/components/Projects";
 import Timeline from "@/components/Timeline";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import BackToTop from "@/components/BackToTop";
 import IntroReveal from "@/components/IntroReveal";
 
 const HomeContent = () => {
@@ -24,7 +23,6 @@ const HomeContent = () => {
       <Timeline />
       <Contact />
       <Footer />
-      <BackToTop />
     </>
   );
 };

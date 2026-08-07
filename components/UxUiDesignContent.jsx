@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import BackToTop from "@/components/BackToTop";
 import StorySection from "@/components/StorySection";
 
 const FIGMA_PROTOTYPE_URL =
@@ -51,7 +50,7 @@ const UxUiDesignContent = () => {
             UX/UI <span className="text-gradient">Design</span>
           </h1>
           <div className="mx-auto mb-8 h-1 w-20 rounded-full bg-gradient-to-r from-violet to-flamingo" />
-          <p className="text-lg leading-relaxed text-white/70 md:text-xl">
+          <p className="text-lg leading-relaxed text-foreground/70 md:text-xl">
             I focus on UX strategy and thoughtful UI design that can scale across teams and
             platforms. My work balances user needs for the product, with system clarity for the
             company.
@@ -89,7 +88,7 @@ const UxUiDesignContent = () => {
             <h2 className="mb-4 font-display text-3xl font-bold md:text-4xl">
               Case Study: <span className="text-gradient">GenMobile</span>
             </h2>
-            <p className="mx-auto max-w-2xl leading-relaxed text-white/70">
+            <p className="mx-auto max-w-2xl leading-relaxed text-foreground/70">
               Upon obtaining GenMobile, a wireless MVNO provider that serves lower-income
               customers and international families, DISH leveraged its Front End UX team to
               reconstruct GenMobile&apos;s website, enhancing the overall customer experience.
@@ -101,10 +100,10 @@ const UxUiDesignContent = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="overflow-hidden rounded-2xl border border-white/10 bg-surface/50"
+            className="overflow-hidden rounded-2xl border border-foreground/10 bg-surface/50"
           >
             <iframe
-              title="GenMobile Case Study — Figma Prototype"
+              title="GenMobile Case Study – Figma Prototype"
               src={`https://www.figma.com/embed?embed_host=share&url=${encodeURIComponent(FIGMA_PROTOTYPE_URL)}`}
               className="h-[600px] w-full md:h-[800px]"
               allowFullScreen
@@ -116,7 +115,6 @@ const UxUiDesignContent = () => {
 
       <Contact />
       <Footer />
-      <BackToTop />
     </>
   );
 };

@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import BackToTop from "@/components/BackToTop";
 import StorySection from "@/components/StorySection";
 
 const stories = [
@@ -14,7 +13,7 @@ const stories = [
     paragraphs: [
       "Growing up in a family of architects and creative thinkers, I developed an early appreciation for systems thinking, spatial reasoning, and aesthetics. With a background in front-end development and a natural lean toward structure, I believe the best design happens where logic meets creativity.",
       "I bring intention to each stage of the process, from planning to execution. Crafting solutions that balance exploration with functional clarity for both teams and end users is the ultimate goal. Strong documentation serves as a blueprint, providing alignment and a reliable foundation while leaving room for creative flexibility throughout the project.",
-      "This is my dad — the last of a few architects to draw blueprints by hand, on a European drafting board in Wisconsin, before handing them off for CAD renderings.",
+      "This is my dad – the last of a few architects to draw blueprints by hand, on a European drafting board in Wisconsin, before handing them off for CAD renderings.",
     ],
   },
   {
@@ -59,7 +58,7 @@ const InspirationContent = () => {
             <span className="text-gradient">Inspiration</span>
           </h1>
           <div className="mx-auto mb-8 h-1 w-20 rounded-full bg-gradient-to-r from-mint to-primary" />
-          <p className="text-lg leading-relaxed text-white/70 md:text-xl">
+          <p className="text-lg leading-relaxed text-foreground/70 md:text-xl">
             From structured design systems to collaborative problem solving and exploration, I draw
             from many sources to create meaningful, balanced solutions.
           </p>
@@ -76,7 +75,6 @@ const InspirationContent = () => {
 
       <Contact />
       <Footer />
-      <BackToTop />
     </>
   );
 };

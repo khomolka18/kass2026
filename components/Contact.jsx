@@ -43,7 +43,6 @@ const Contact = () => {
   const contactInfo = [
     { icon: "📧", label: "Email", value: SITE.email, link: `mailto:${SITE.email}` },
     { icon: "💼", label: "LinkedIn", value: "Kassee Homolka", link: SITE.linkedin },
-    { icon: "🌐", label: "Portfolio", value: "kasseehomolka.com", link: SITE.personalSite },
     { icon: "📍", label: "Location", value: SITE.location, link: null },
   ];
 
@@ -63,7 +62,7 @@ const Contact = () => {
           <h2 className="mb-4 font-display text-5xl font-bold md:text-6xl">
             Get In <span className="text-gradient">Touch</span>
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-white/60">
+          <p className="mx-auto max-w-2xl text-lg text-foreground/60">
             Have a project in mind, or just want to talk shop? I&apos;d love to hear from you.
           </p>
           <div className="mx-auto mt-6 h-1 w-20 rounded-full bg-gradient-to-r from-primary to-violet" />
@@ -78,8 +77,8 @@ const Contact = () => {
             className="space-y-8"
           >
             <div>
-              <h3 className="mb-4 text-2xl font-bold text-white">Let&apos;s Connect</h3>
-              <p className="mb-8 leading-relaxed text-white/60">
+              <h3 className="mb-4 text-2xl font-bold text-foreground">Let&apos;s Connect</h3>
+              <p className="mb-8 leading-relaxed text-foreground/60">
                 Based in Denver, but open to remote opportunities that align with my values.
                 Whether it&apos;s to skim my resume, collaborate, or grab a coffee, I&apos;m open
                 to talk virtually or in person.
@@ -90,10 +89,10 @@ const Contact = () => {
               {contactInfo.map((info) => {
                 const content = (
                   <>
-                    <div className="text-3xl">{info.icon}</div>
+                    <div className="text-3xl" aria-hidden="true">{info.icon}</div>
                     <div className="flex-1">
-                      <div className="text-sm text-white/50">{info.label}</div>
-                      <div className="text-white">{info.value}</div>
+                      <div className="text-sm text-foreground/60">{info.label}</div>
+                      <div className="text-foreground">{info.value}</div>
                     </div>
                   </>
                 );
@@ -139,19 +138,20 @@ const Contact = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                 >
-                  <label htmlFor={field} className="mb-2 block text-sm font-medium text-white capitalize">
+                  <label htmlFor={field} className="mb-2 block text-sm font-medium text-foreground capitalize">
                     {field}
                   </label>
                   <input
                     type={field === "email" ? "email" : "text"}
                     id={field}
                     name={field}
+                    autoComplete={field === "email" ? "email" : field === "name" ? "name" : "off"}
                     value={formData[field]}
                     onChange={handleChange}
                     onFocus={() => setFocusedField(field)}
                     onBlur={() => setFocusedField(null)}
                     required
-                    className="w-full rounded-lg border-2 bg-dark px-4 py-3 text-white outline-none transition-colors"
+                    className="w-full rounded-lg border-2 bg-dark px-4 py-3 text-foreground outline-none transition-colors"
                     style={{ borderColor: focusedField === field ? "#3f98e0" : "rgba(63, 152, 224, 0.2)" }}
                   />
                 </motion.div>
@@ -163,7 +163,7 @@ const Contact = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                <label htmlFor="message" className="mb-2 block text-sm font-medium text-white">
+                <label htmlFor="message" className="mb-2 block text-sm font-medium text-foreground">
                   Message
                 </label>
                 <textarea
@@ -175,7 +175,7 @@ const Contact = () => {
                   onBlur={() => setFocusedField(null)}
                   required
                   rows="5"
-                  className="w-full resize-none rounded-lg border-2 bg-dark px-4 py-3 text-white outline-none transition-colors"
+                  className="w-full resize-none rounded-lg border-2 bg-dark px-4 py-3 text-foreground outline-none transition-colors"
                   style={{ borderColor: focusedField === "message" ? "#3f98e0" : "rgba(63, 152, 224, 0.2)" }}
                 />
               </motion.div>
@@ -192,21 +192,25 @@ const Contact = () => {
 
               {submitStatus === "success" && (
                 <motion.div
+                  role="status"
+                  aria-live="polite"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="rounded-lg border border-mint/30 bg-mint/10 p-4 text-center text-mint"
+                  className="rounded-lg border border-mint/30 bg-mint/10 p-4 text-center text-mint-text"
                 >
-                  Message sent — I&apos;ll get back to you soon!
+                  Message sent – I&apos;ll get back to you soon!
                 </motion.div>
               )}
 
               {submitStatus === "error" && (
                 <motion.div
+                  role="alert"
+                  aria-live="assertive"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="rounded-lg border border-flamingo/30 bg-flamingo/10 p-4 text-center text-flamingo"
+                  className="rounded-lg border border-flamingo/30 bg-flamingo/10 p-4 text-center text-flamingo-text"
                 >
-                  Something went wrong — please email me directly.
+                  Something went wrong – please email me directly.
                 </motion.div>
               )}
             </form>

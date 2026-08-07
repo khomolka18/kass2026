@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { RESUME_URL } from "@/lib/config";
+import { BASE_PATH, RESUME_URL } from "@/lib/config";
 
 const StatCard = ({ number, label, delay }) => {
   const ref = useRef(null);
@@ -17,7 +17,7 @@ const StatCard = ({ number, label, delay }) => {
       className="text-center"
     >
       <div className="mb-2 text-4xl font-bold text-gradient md:text-5xl">{number}</div>
-      <div className="text-sm uppercase tracking-wider text-white/50">{label}</div>
+      <div className="text-sm uppercase tracking-wider text-foreground/60">{label}</div>
     </motion.div>
   );
 };
@@ -29,7 +29,7 @@ const SkillBadge = ({ skill, delay }) => (
     viewport={{ once: true }}
     transition={{ duration: 0.5, delay }}
     whileHover={{ scale: 1.1, rotate: 2 }}
-    className="rounded-full border border-primary/30 bg-gradient-to-r from-primary/10 to-violet/10 px-4 py-2 text-sm font-medium text-white hover:border-primary/60"
+    className="rounded-full border border-primary/30 bg-gradient-to-r from-primary/10 to-violet/10 px-4 py-2 text-sm font-medium text-foreground hover:border-primary/60"
   >
     {skill}
   </motion.div>
@@ -51,7 +51,7 @@ const About = () => {
 
   const strengths = [
     "Eager, and always thinking about the bigger picture",
-    "Not afraid of a challenge — or asking for help",
+    "Not afraid of a challenge – or asking for help",
     "Organized, and fast to learn new tools",
     "Thrives in cross-functional, collaborative environments",
     "Confident in personal and professional views",
@@ -92,7 +92,7 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="leading-relaxed text-white/80"
+              className="leading-relaxed text-foreground/80"
             >
               I&apos;m Kassee Homolka, a product designer based in Denver, Colorado with 10+ years of
               experience across UX, UI, frontend development, and design systems. I&apos;ve led
@@ -105,11 +105,11 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="leading-relaxed text-white/80"
+              className="leading-relaxed text-foreground/80"
             >
               My background in marketing, development, and design helps me think holistically and
               collaborate across disciplines. I care deeply about people, accessible design, and
-              bringing clarity to complex systems — grounding decisions in empathy, evidence, and the
+              bringing clarity to complex systems – grounding decisions in empathy, evidence, and the
               lived experiences of users.
             </motion.p>
 
@@ -118,9 +118,9 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="leading-relaxed text-white/80"
+              className="leading-relaxed text-foreground/80"
             >
-              These days I&apos;m seeking opportunities that align with my values — progressive,
+              These days I&apos;m seeking opportunities that align with my values – progressive,
               mission-driven spaces where design can create meaningful impact, particularly around
               equity, care, and innovation.
             </motion.p>
@@ -132,9 +132,15 @@ const About = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="relative mx-auto flex aspect-square w-full max-w-xs items-center justify-center rounded-2xl border-2 border-primary/20 bg-gradient-to-br from-primary/20 via-violet/20 to-flamingo/20"
+              className="relative mx-auto aspect-square w-full max-w-xs"
             >
-              <span className="font-display text-6xl font-bold text-gradient">KH</span>
+              <div className="h-full w-full overflow-hidden rounded-2xl border-2 border-primary/20 bg-gradient-to-br from-primary/20 via-violet/20 to-flamingo/20">
+                <img
+                  src={`${BASE_PATH}/kassee-headshot.jpg`}
+                  alt="Kassee Homolka"
+                  className="h-full w-full object-cover"
+                />
+              </div>
               <motion.div
                 className="absolute -top-4 -right-4 h-20 w-20 rounded-2xl border-2 border-primary/30 -z-10"
                 animate={{ rotate: 360 }}
@@ -160,25 +166,25 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16 grid gap-6 rounded-2xl border border-white/10 bg-surface/50 p-8 md:grid-cols-2"
+          className="mb-16 grid gap-6 rounded-2xl border border-foreground/10 bg-surface/50 p-8 md:grid-cols-2"
         >
           <div>
-            <h3 className="mb-4 text-lg font-bold text-mint">Strengths</h3>
-            <ul className="space-y-2 text-sm text-white/70">
+            <h3 className="mb-4 text-lg font-bold text-mint-text">Strengths</h3>
+            <ul className="space-y-2 text-sm text-foreground/70">
               {strengths.map((s) => (
                 <li key={s} className="flex gap-2">
-                  <span className="text-mint">+</span>
+                  <span className="text-mint-text">+</span>
                   {s}
                 </li>
               ))}
             </ul>
           </div>
           <div>
-            <h3 className="mb-4 text-lg font-bold text-flamingo">Weaknesses</h3>
-            <ul className="space-y-2 text-sm text-white/70">
+            <h3 className="mb-4 text-lg font-bold text-flamingo-text">Weaknesses</h3>
+            <ul className="space-y-2 text-sm text-foreground/70">
               {weaknesses.map((w) => (
                 <li key={w} className="flex gap-2">
-                  <span className="text-flamingo">−</span>
+                  <span className="text-flamingo-text">−</span>
                   {w}
                 </li>
               ))}
@@ -193,7 +199,7 @@ const About = () => {
           transition={{ duration: 0.6 }}
         >
           <h3 className="mb-6 text-center text-2xl font-bold">
-            Tech Stack & <span className="text-gradient">Skills</span>
+            Design, Development & Workplace <span className="text-gradient">Skills</span>
           </h3>
           <div className="flex flex-wrap justify-center gap-3">
             {skills.map((skill, index) => (

@@ -15,14 +15,14 @@ const ProjectCard = ({ title, description, icon, gradient, link, tags }) => (
       rel={link.startsWith("http") ? "noopener noreferrer" : undefined}
       className="block h-full"
     >
-      <div className={`relative flex h-80 flex-col justify-between rounded-xl border border-white/10 p-6 ${gradient}`}>
-        <div className="text-5xl">{icon}</div>
+      <div className={`relative flex min-h-80 flex-col justify-between rounded-xl border border-foreground/10 p-6 ${gradient}`}>
+        <div className="text-5xl" aria-hidden="true">{icon}</div>
         <div>
-          <h3 className="mb-2 text-2xl font-bold text-white">{title}</h3>
-          <p className="mb-4 text-sm text-white/70">{description}</p>
+          <h3 className="mb-2 text-2xl font-bold text-foreground">{title}</h3>
+          <p className="mb-4 text-sm text-foreground/70">{description}</p>
           <div className="flex flex-wrap gap-2">
             {tags.map((tag) => (
-              <span key={tag} className="rounded-full border border-white/20 bg-black/20 px-3 py-1 text-xs text-white">
+              <span key={tag} className="rounded-full border border-foreground/20 bg-black/20 px-3 py-1 text-base text-foreground">
                 {tag}
               </span>
             ))}
@@ -38,7 +38,7 @@ const Projects = () => {
     {
       title: "Design Systems",
       description:
-        "Led EchoStar's cross-brand design system spanning native mobile, TV, web, and internal tools — scalable architecture, training, and cross-functional adoption.",
+        "Led EchoStar's cross-brand design system spanning native mobile, TV, web, and internal tools – scalable architecture, training, and cross-functional adoption.",
       icon: "🧩",
       gradient: "bg-gradient-to-br from-primary/20 to-violet/20",
       link: `${BASE_PATH}/design-systems/`,
@@ -47,7 +47,7 @@ const Projects = () => {
     {
       title: "UX/UI Design",
       description:
-        "Responsive tools and experiences across telecom, streaming, and retail — including Kohl's, Boost Mobile, Sling, and GenMobile.",
+        "Responsive tools and experiences across telecom, streaming, and retail – including Kohl's, Boost Mobile, Sling, and GenMobile.",
       icon: "📱",
       gradient: "bg-gradient-to-br from-violet/20 to-flamingo/20",
       link: `${BASE_PATH}/ux-ui-design/`,
@@ -56,7 +56,7 @@ const Projects = () => {
     {
       title: "Inspiration",
       description:
-        "When I'm not designing systems, I'm making things with my hands — macramé, charcoal sketches, and painting.",
+        "When I'm not designing systems, I'm making things with my hands – macramé, charcoal sketches, and painting.",
       icon: "🎨",
       gradient: "bg-gradient-to-br from-flamingo/20 to-mint/20",
       link: `${BASE_PATH}/inspiration/`,
@@ -77,7 +77,7 @@ const Projects = () => {
           <h2 className="mb-4 font-display text-5xl font-bold md:text-6xl">
             Focus <span className="text-gradient">Areas</span>
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-white/60">
+          <p className="mx-auto max-w-2xl text-lg text-foreground/60">
             Where design systems, UX strategy, and a little bit of personality intersect
           </p>
         </motion.div>

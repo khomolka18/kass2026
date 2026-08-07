@@ -1,8 +1,27 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
+  --background: #f7f7fb;
+  --foreground: #0a0a14;
+  --surface-color: #ffffff;
+  /* Darkened variants of the brand accents, used only where the accent is the
+     TEXT color itself. The originals fail WCAG AA (as low as 1.3:1) against
+     the light background — verified via contrast calculation, not eyeballed.
+     Backgrounds/borders/gradients keep the original vivid accents below. */
+  --primary-text: #1e75bc;
+  --mint-text: #058143;
+  --flamingo-text: #e2005a;
+}
+
+.dark {
   --background: #0a0a14;
   --foreground: #ffffff;
+  --surface-color: #171725;
+  --primary-text: #3f98e0;
+  --mint-text: #38f898;
+  --flamingo-text: #ff1472;
 }
 
 @theme inline {
@@ -13,8 +32,11 @@
   --color-violet: #6d13ff;
   --color-mint: #38f898;
   --color-flamingo: #ff1472;
-  --color-surface: #171725;
-  --color-dark: #0a0a14;
+  --color-primary-text: var(--primary-text);
+  --color-mint-text: var(--mint-text);
+  --color-flamingo-text: var(--flamingo-text);
+  --color-surface: var(--surface-color);
+  --color-dark: var(--background);
 
   --font-sans: var(--font-inter);
   --font-display: var(--font-display);
@@ -30,6 +52,7 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .font-display {
@@ -55,4 +78,18 @@ body {
 
 .animate-blob {
   animation: blob-pulse 10s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
 }

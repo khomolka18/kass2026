@@ -12,11 +12,11 @@ const TimelineItem = ({ title, company, period, description, icon, color, index 
 
   const Card = (
     <GlowCard className="rounded-xl overflow-hidden" glowColor={color} glowSize={300} glowOpacity={0.3}>
-      <div className="rounded-xl border border-white/10 bg-gradient-to-br from-primary/10 to-violet/10 p-6 hover:border-primary/40 transition-colors">
-        <h3 className="mb-1 text-xl font-bold text-white">{title}</h3>
+      <div className="rounded-xl border border-foreground/10 bg-gradient-to-br from-primary/10 to-violet/10 p-6 hover:border-primary/40 transition-colors">
+        <h3 className="mb-1 text-xl font-bold text-foreground">{title}</h3>
         <h4 className="mb-2 font-semibold" style={{ color: `rgb(${color})` }}>{company}</h4>
-        <p className="mb-3 text-sm text-white/50">{period}</p>
-        <p className="text-sm leading-relaxed text-white/70">{description}</p>
+        <p className="mb-3 text-sm text-foreground/60">{period}</p>
+        <p className="text-sm leading-relaxed text-foreground/70">{description}</p>
       </div>
     </GlowCard>
   );
@@ -79,11 +79,11 @@ const TimelineItem = ({ title, company, period, description, icon, color, index 
         </div>
         <div className="flex-1 pb-8">
           <GlowCard className="rounded-xl overflow-hidden" glowColor={color} glowSize={250} glowOpacity={0.3}>
-            <div className="rounded-xl border border-white/10 bg-gradient-to-br from-primary/10 to-violet/10 p-4">
-              <h3 className="mb-1 text-lg font-bold text-white">{title}</h3>
+            <div className="rounded-xl border border-foreground/10 bg-gradient-to-br from-primary/10 to-violet/10 p-4">
+              <h3 className="mb-1 text-lg font-bold text-foreground">{title}</h3>
               <h4 className="mb-2 text-sm font-semibold" style={{ color: `rgb(${color})` }}>{company}</h4>
-              <p className="mb-3 text-xs text-white/50">{period}</p>
-              <p className="text-sm leading-relaxed text-white/70">{description}</p>
+              <p className="mb-3 text-sm text-foreground/60">{period}</p>
+              <p className="text-sm leading-relaxed text-foreground/70">{description}</p>
             </div>
           </GlowCard>
         </div>
@@ -99,7 +99,7 @@ const Timeline = () => {
       company: "Centerline",
       period: "November 2025 - Present",
       description:
-        "Supporting an early-stage website refresh pilot for client HID — kickoff and ideation meetings, wireframes, interactive prototyping, and iterating on design layouts to facilitate usability testing and responsive components.",
+        "Supporting an early-stage website refresh pilot for client HID – kickoff and ideation meetings, wireframes, interactive prototyping, and iterating on design layouts to facilitate usability testing and responsive components.",
       icon: "🚀",
       color: "63, 152, 224",
     },
@@ -135,7 +135,7 @@ const Timeline = () => {
       company: "Kohl's Department Stores",
       period: "August 2016 - July 2017",
       description:
-        "Concepted, designed, and developed landing pages for Kohls.com — primarily women's and beauty pages — plus enterprise-wide modules and seasonal B2B campaigns.",
+        "Concepted, designed, and developed landing pages for Kohls.com – primarily women's and beauty pages – plus enterprise-wide modules and seasonal B2B campaigns.",
       icon: "🛍️",
       color: "63, 152, 224",
     },
@@ -159,7 +159,7 @@ const Timeline = () => {
           <h2 className="mb-4 font-display text-5xl font-bold md:text-6xl">
             My <span className="text-gradient">Journey</span>
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-white/60">
+          <p className="mx-auto max-w-2xl text-lg text-foreground/60">
             From journalism and marketing to design systems leadership
           </p>
           <div className="mx-auto mt-6 h-1 w-20 rounded-full bg-gradient-to-r from-primary to-violet" />
@@ -191,7 +191,7 @@ const Timeline = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-16 text-center"
         >
-          <p className="mb-6 text-white/60">Want the full story?</p>
+          <p className="mb-6 text-foreground/60">Want the full story?</p>
           <motion.a
             href={RESUME_URL}
             target="_blank"

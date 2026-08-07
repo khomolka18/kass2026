@@ -73,7 +73,7 @@ const Navigation = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? "bg-dark/90 backdrop-blur-lg border-b border-white/10 shadow-lg" : "bg-transparent"
+          isScrolled ? "bg-dark/90 backdrop-blur-lg border-b border-foreground/10 shadow-lg" : "bg-transparent"
         }`}
       >
         <div className="mx-auto max-w-7xl px-4 md:px-8">
@@ -97,7 +97,7 @@ const Navigation = () => {
                     href={hrefFor(item.href)}
                     onClick={handleNavClick(item.href)}
                     className={`relative text-sm font-medium transition-colors ${
-                      isActive ? "text-primary" : "text-white/70 hover:text-white"
+                      isActive ? "text-primary-text" : "text-foreground/70 hover:text-foreground"
                     }`}
                     whileHover={{ y: -2 }}
                   >
@@ -130,19 +130,22 @@ const Navigation = () => {
                 className="relative flex h-10 w-10 items-center justify-center"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 whileTap={{ scale: 0.9 }}
+                aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+                aria-expanded={isMobileMenuOpen}
+                aria-controls="mobile-nav-menu"
               >
                 <div className="flex w-6 flex-col gap-1.5">
                   <motion.span
                     animate={isMobileMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
-                    className="h-0.5 w-full rounded-full bg-white"
+                    className="h-0.5 w-full rounded-full bg-foreground"
                   />
                   <motion.span
                     animate={isMobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-                    className="h-0.5 w-full rounded-full bg-white"
+                    className="h-0.5 w-full rounded-full bg-foreground"
                   />
                   <motion.span
                     animate={isMobileMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
-                    className="h-0.5 w-full rounded-full bg-white"
+                    className="h-0.5 w-full rounded-full bg-foreground"
                   />
                 </div>
               </motion.button>
@@ -152,10 +155,11 @@ const Navigation = () => {
       </motion.nav>
 
       <motion.div
+        id="mobile-nav-menu"
         initial={{ opacity: 0, x: "100%" }}
         animate={isMobileMenuOpen ? { opacity: 1, x: 0 } : { opacity: 0, x: "100%" }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="fixed top-16 right-0 bottom-0 z-40 w-64 border-l border-white/10 bg-dark/98 backdrop-blur-lg md:hidden"
+        className="fixed top-16 right-0 bottom-0 z-40 w-64 border-l border-foreground/10 bg-dark/98 backdrop-blur-lg md:hidden"
       >
         <div className="flex flex-col space-y-6 p-6">
           {navItems.map((item, index) => {
@@ -175,7 +179,7 @@ const Navigation = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={isMobileMenuOpen ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
                 transition={{ delay: index * 0.1 }}
-                className={`text-lg font-medium ${isActive ? "text-primary" : "text-white/70"}`}
+                className={`text-lg font-medium ${isActive ? "text-primary-text" : "text-foreground/70"}`}
               >
                 {item.name}
               </motion.a>

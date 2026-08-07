@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import BackToTop from "@/components/BackToTop";
 import StorySection from "@/components/StorySection";
 
 const stories = [
@@ -21,8 +20,8 @@ const stories = [
     title: "Gaining Momentum",
     reverse: true,
     paragraphs: [
-      "I'm a senior product designer who builds scalable, inclusive design systems. My work weaves together designers, developers, authors, and researchers — because good design isn't just what we see. It's how teams come together to build it.",
-      "Whether I'm crafting macramé by hand or leading cross-functional workshops, I believe in structure, clarity, and creative collaboration. I'm here to make things that last — and bring people along in the process.",
+      "I'm a senior product designer who builds scalable, inclusive design systems. My work weaves together designers, developers, authors, and researchers – because good design isn't just what we see. It's how teams come together to build it.",
+      "Whether I'm crafting macramé by hand or leading cross-functional workshops, I believe in structure, clarity, and creative collaboration. I'm here to make things that last – and bring people along in the process.",
     ],
   },
   {
@@ -30,7 +29,7 @@ const stories = [
     title: "Figma Transition",
     paragraphs: [
       "The DISH enterprise recently signed with Figma (previously Sketch/InVision), and we dedicated ourselves to swiftly rebuilding the extensive Campfire library while exploring its full range of capabilities. We initiated a design refresh and restructured our system to adhere to atomic standards.",
-      "Additionally, we established processes for editing or adding components, considering their placement within our DSM — research and testing played a significant role throughout the rebuilding process. This project was not only exciting in terms of learning how Sketch and Figma relate and differ but also proved to be a valuable experience for our team.",
+      "Additionally, we established processes for editing or adding components, considering their placement within our DSM – research and testing played a significant role throughout the rebuilding process. This project was not only exciting in terms of learning how Sketch and Figma relate and differ but also proved to be a valuable experience for our team.",
     ],
   },
   {
@@ -65,7 +64,7 @@ const DesignSystemsContent = () => {
             Design <span className="text-gradient">Systems</span>
           </h1>
           <div className="mx-auto mb-8 h-1 w-20 rounded-full bg-gradient-to-r from-primary to-violet" />
-          <p className="text-lg leading-relaxed text-white/70 md:text-xl">
+          <p className="text-lg leading-relaxed text-foreground/70 md:text-xl">
             I specialize in large-scale design systems that support consistency, flexibility, and
             growth. My work bridges design, development, and documentation across complex teams and
             products.
@@ -83,7 +82,6 @@ const DesignSystemsContent = () => {
 
       <Contact />
       <Footer />
-      <BackToTop />
     </>
   );
 };

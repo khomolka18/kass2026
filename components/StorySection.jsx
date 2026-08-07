@@ -19,7 +19,7 @@ const StorySection = ({ icon, title, paragraphs, reverse = false }) => (
       <h2 className="mb-4 font-display text-3xl font-bold md:text-4xl">{title}</h2>
       <div className="space-y-4">
         {paragraphs.map((p, i) => (
-          <p key={i} className="leading-relaxed text-white/70">
+          <p key={i} className="leading-relaxed text-foreground/70">
             {p}
           </p>
         ))}
