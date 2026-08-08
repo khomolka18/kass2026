@@ -128,7 +128,7 @@ const Timeline = () => {
       description:
         "Created internal and external digital assets for DISH, Sling TV, and B2B campaigns. Helped establish responsive design standards and accessibility best practices across teams.",
       icon: "🎨",
-      color: "255, 20, 114",
+      color: "218, 35, 108",
     },
     {
       title: "Web Designer and Front End Developer",
@@ -157,7 +157,7 @@ const Timeline = () => {
           className="mb-20 text-center"
         >
           <h2 className="mb-4 font-display text-5xl font-bold md:text-6xl">
-            My <span className="text-gradient">Journey</span>
+            My Journey
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-foreground/60">
             From journalism and marketing to design systems leadership
@@ -181,17 +181,6 @@ const Timeline = () => {
           transition={{ duration: 0.5 }}
           className="mt-8 flex justify-center"
         >
-          <div className="h-4 w-4 rounded-full bg-gradient-to-r from-primary to-violet shadow-lg" />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-16 text-center"
-        >
-          <p className="mb-6 text-foreground/60">Want the full story?</p>
           <motion.a
             href={RESUME_URL}
             target="_blank"
@@ -200,7 +189,7 @@ const Timeline = () => {
             whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(63, 152, 224, 0.5)" }}
             whileTap={{ scale: 0.95 }}
           >
-            View Full Resume ↗
+            My Full Resume ↗
           </motion.a>
         </motion.div>
       </div>

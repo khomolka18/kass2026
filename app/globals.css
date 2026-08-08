@@ -12,7 +12,7 @@
      Backgrounds/borders/gradients keep the original vivid accents below. */
   --primary-text: #1e75bc;
   --mint-text: #058143;
-  --flamingo-text: #e2005a;
+  --flamingo-text: #d32269;
 }
 
 .dark {
@@ -21,7 +21,7 @@
   --surface-color: #171725;
   --primary-text: #3f98e0;
   --mint-text: #38f898;
-  --flamingo-text: #ff1472;
+  --flamingo-text: #e14785;
 }
 
 @theme inline {
@@ -31,10 +31,15 @@
   --color-primary: #3f98e0;
   --color-violet: #6d13ff;
   --color-mint: #38f898;
-  --color-flamingo: #ff1472;
+  --color-flamingo: #da236c;
   --color-primary-text: var(--primary-text);
   --color-mint-text: var(--mint-text);
   --color-flamingo-text: var(--flamingo-text);
+  /* Solid CTA buttons pair this with literal white text — #3f98e0 itself
+     only hits 3.1:1 against white (fails AA 4.5:1), verified via contrast
+     calculation. Fixed (not theme-dependent): the button background never
+     changes with the site theme. */
+  --color-primary-button: #1f78c1;
   --color-surface: var(--surface-color);
   --color-dark: var(--background);
 
@@ -60,7 +65,7 @@ body {
 }
 
 .text-gradient {
-  background-image: linear-gradient(90deg, #3f98e0, #6d13ff, #ff1472);
+  background-image: linear-gradient(90deg, #3f98e0, #6d13ff, #da236c);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

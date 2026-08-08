@@ -103,7 +103,7 @@ const Contact = () => {
           className="mb-16 text-center"
         >
           <h2 className="mb-4 font-display text-5xl font-bold md:text-6xl">
-            Get In <span className="text-gradient">Touch</span>
+            Get In Touch
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-foreground/60">
             Have a project in mind, or just want to talk shop? I&apos;d love to hear from you.

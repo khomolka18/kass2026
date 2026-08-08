@@ -78,12 +78,11 @@ const Projects = () => {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <h2 className="mb-4 font-display text-5xl font-bold md:text-6xl">
-            <span className="text-gradient">Focus</span>
-          </h2>
+          <h2 className="mb-4 font-display text-5xl font-bold md:text-6xl">Focus</h2>
           <p className="mx-auto max-w-2xl text-lg text-foreground/60">
             Where design systems, UX strategy, and my personality intersect
           </p>
+          <div className="mx-auto mt-6 h-1 w-20 rounded-full bg-gradient-to-r from-primary to-violet" />
         </motion.div>
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">

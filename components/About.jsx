@@ -84,7 +84,7 @@ const About = () => {
           className="mb-16 text-center"
         >
           <h2 className="mb-4 font-display text-5xl font-bold md:text-6xl">
-            About <span className="text-gradient">Me</span>
+            About Me
           </h2>
           <div className="mx-auto h-1 w-20 rounded-full bg-gradient-to-r from-primary to-violet" />
         </motion.div>
@@ -203,7 +203,7 @@ const About = () => {
           transition={{ duration: 0.6 }}
         >
           <h3 className="mb-6 text-center text-2xl font-bold">
-            Design, Development & Workplace <span className="text-gradient">Skills</span>
+            Design, Development & Workplace Skills
           </h3>
           <div className="flex flex-wrap justify-center gap-3">
             {skills.map((skill, index) => (
@@ -223,7 +223,7 @@ const About = () => {
             href={RESUME_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block rounded-lg bg-primary px-8 py-3 font-semibold text-white"
+            className="inline-block rounded-lg bg-primary-button px-8 py-3 font-semibold text-white"
             whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(63, 152, 224, 0.5)" }}
             whileTap={{ scale: 0.95 }}
           >

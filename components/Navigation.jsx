@@ -117,7 +117,7 @@ const Navigation = () => {
                 href={RESUME_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-lg bg-primary px-6 py-2 text-sm font-semibold text-white"
+                className="rounded-lg bg-primary-button px-6 py-2 text-sm font-semibold text-white"
                 whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(63, 152, 224, 0.5)" }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -193,7 +193,7 @@ const Navigation = () => {
             initial={{ opacity: 0, x: 20 }}
             animate={isMobileMenuOpen ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
             transition={{ delay: navItems.length * 0.1 }}
-            className="rounded-lg bg-primary px-6 py-3 text-center font-semibold text-white"
+            className="rounded-lg bg-primary-button px-6 py-3 text-center font-semibold text-white"
           >
             Download Resume ↗
           </motion.a>
