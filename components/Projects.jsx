@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { BASE_PATH } from "@/lib/config";
 
-const ProjectCard = ({ title, description, icon, gradient, link, tags }) => (
+const ProjectCard = ({ title, description, icon, iconImage, gradient, link, tags }) => (
   <motion.div
     className="overflow-hidden rounded-xl"
     whileHover={{ scale: 1.03 }}
@@ -16,7 +16,11 @@ const ProjectCard = ({ title, description, icon, gradient, link, tags }) => (
       className="block h-full"
     >
       <div className={`relative flex min-h-80 flex-col justify-between rounded-xl border border-foreground/10 p-6 ${gradient}`}>
-        <div className="text-5xl" aria-hidden="true">{icon}</div>
+        {iconImage ? (
+          <img src={iconImage} alt="" aria-hidden="true" className="h-12 w-auto self-start dark:invert" />
+        ) : (
+          <div className="text-5xl" aria-hidden="true">{icon}</div>
+        )}
         <div>
           <h3 className="mb-2 text-2xl font-bold text-foreground">{title}</h3>
           <p className="mb-4 text-sm text-foreground/70">{description}</p>
@@ -39,28 +43,28 @@ const Projects = () => {
       title: "Design Systems",
       description:
         "Led EchoStar's cross-brand design system spanning native mobile, TV, web, and internal tools – scalable architecture, training, and cross-functional adoption.",
-      icon: "🧩",
+      iconImage: `${BASE_PATH}/modules-icon.png`,
       gradient: "bg-gradient-to-br from-primary/20 to-violet/20",
       link: `${BASE_PATH}/design-systems/`,
-      tags: ["Design Systems", "Figma", "Accessibility", "Cross-brand"],
+      tags: ["Design Systems", "Figma", "Sketch", "Accessibility", "Cross-brand", "Claude"],
     },
     {
       title: "UX/UI Design",
       description:
         "Responsive tools and experiences across telecom, streaming, and retail – including Kohl's, Boost Mobile, Sling, and GenMobile.",
-      icon: "📱",
+      iconImage: `${BASE_PATH}/uxui-icon.png`,
       gradient: "bg-gradient-to-br from-violet/20 to-flamingo/20",
       link: `${BASE_PATH}/ux-ui-design/`,
-      tags: ["Kohl's", "Boost Mobile", "Sling", "GenMobile"],
+      tags: ["GenMobile", "Kohl's", "Boost Mobile", "Sling", "DISH", "Centerline"],
     },
     {
       title: "Inspiration",
       description:
         "When I'm not designing systems, I'm making things with my hands – macramé, charcoal sketches, and painting.",
-      icon: "🎨",
+      iconImage: `${BASE_PATH}/inspiration-icon.png`,
       gradient: "bg-gradient-to-br from-flamingo/20 to-mint/20",
       link: `${BASE_PATH}/inspiration/`,
-      tags: ["Macramé", "Charcoal", "Painting", "Architecture"],
+      tags: ["Macramé", "Charcoal", "Painting", "Architecture", "Cooking", "Dance"],
     },
   ];
 
@@ -75,10 +79,10 @@ const Projects = () => {
           className="mb-16 text-center"
         >
           <h2 className="mb-4 font-display text-5xl font-bold md:text-6xl">
-            Focus <span className="text-gradient">Areas</span>
+            <span className="text-gradient">Focus</span>
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-foreground/60">
-            Where design systems, UX strategy, and a little bit of personality intersect
+            Where design systems, UX strategy, and my personality intersect
           </p>
         </motion.div>
 

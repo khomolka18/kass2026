@@ -39,14 +39,19 @@ const About = () => {
   const skills = [
     "Design Systems",
     "Figma",
+    "Sketch",
     "Prototyping",
     "Usability Testing",
     "Journey Mapping",
     "Accessibility",
+    "WCAG Best Practices",
     "HTML/CSS",
+    "UI Design",
     "Brand Identity",
     "Product Management",
     "Agile/Scrum",
+    "Jira",
+    "Claude",
   ];
 
   const strengths = [
@@ -54,14 +59,13 @@ const About = () => {
     "Not afraid of a challenge – or asking for help",
     "Organized, and fast to learn new tools",
     "Thrives in cross-functional, collaborative environments",
-    "Confident in personal and professional views",
+    "Confident in my personal and professional values",
     "Damn good taste in music",
   ];
 
   const weaknesses = [
-    "Still the worst speller in every Slack channel",
-    "A little awkward in front of a crowd",
-    "Handwriting of an 8-year-old",
+    "A bit awkward in front of a crowd",
+    "Handwriting of an 8 year old",
   ];
 
   return (
@@ -154,9 +158,9 @@ const About = () => {
             </motion.div>
 
             <div className="grid grid-cols-3 gap-4 rounded-xl border border-primary/10 bg-gradient-to-br from-primary/5 to-violet/5 p-6">
-              <StatCard number="10+" label="Years Experience" delay={0.2} />
-              <StatCard number="5+" label="Major Brands" delay={0.4} />
-              <StatCard number="1" label="Design System to Rule Them All" delay={0.6} />
+              <StatCard number="10+" label="Years Industry Experience" delay={0.2} />
+              <StatCard number="5+" label="Major Brands Worldwide" delay={0.4} />
+              <StatCard number="100+" label="Great People to Work With" delay={0.6} />
             </div>
           </div>
         </div>

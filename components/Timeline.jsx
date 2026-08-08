@@ -3,7 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import GlowCard from "./GlowCard";
-import { RESUME_URL } from "@/lib/config";
+import { BASE_PATH, RESUME_URL } from "@/lib/config";
 
 const TimelineItem = ({ title, company, period, description, icon, color, index }) => {
   const ref = useRef(null);
@@ -109,7 +109,7 @@ const Timeline = () => {
       period: "June 2021 - June 2025",
       description:
         "Led EchoStar's cross-brand design system spanning native mobile, TV, web, and internal tools. Drove adoption through scalable architecture, training, and cross-functional collaboration.",
-      icon: "🧩",
+      icon: <img src={`${BASE_PATH}/modules-icon.png`} alt="" className="h-7 w-auto invert" />,
       color: "109, 19, 255",
     },
     {
