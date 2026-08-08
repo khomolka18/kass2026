@@ -100,7 +100,7 @@ const Timeline = () => {
       period: "November 2025 - Present",
       description:
         "Supporting an early-stage website refresh pilot for client HID – kickoff and ideation meetings, wireframes, interactive prototyping, and iterating on design layouts to facilitate usability testing and responsive components.",
-      icon: "🚀",
+      icon: <img src={`${BASE_PATH}/uxui-icon.png`} alt="" className="h-7 w-auto invert" />,
       color: "63, 152, 224",
     },
     {
@@ -118,7 +118,7 @@ const Timeline = () => {
       period: "April 2020 - June 2021",
       description:
         "Oversaw component strategy and design governance for an enterprise-wide design system. Facilitated user testing and research integration across teams using AEM, Quantum Metric, and UserZoom.",
-      icon: "🧭",
+      icon: <img src={`${BASE_PATH}/inspiration-icon.png`} alt="" className="h-7 w-auto invert" />,
       color: "56, 248, 152",
     },
     {
@@ -127,7 +127,7 @@ const Timeline = () => {
       period: "July 2017 - April 2020",
       description:
         "Created internal and external digital assets for DISH, Sling TV, and B2B campaigns. Helped establish responsive design standards and accessibility best practices across teams.",
-      icon: "🎨",
+      icon: <img src={`${BASE_PATH}/modules-icon.png`} alt="" className="h-7 w-auto invert" />,
       color: "218, 35, 108",
     },
     {
@@ -136,7 +136,7 @@ const Timeline = () => {
       period: "August 2016 - July 2017",
       description:
         "Concepted, designed, and developed landing pages for Kohls.com – primarily women's and beauty pages – plus enterprise-wide modules and seasonal B2B campaigns.",
-      icon: "🛍️",
+      icon: <img src={`${BASE_PATH}/uxui-icon.png`} alt="" className="h-7 w-auto invert" />,
       color: "63, 152, 224",
     },
   ];
