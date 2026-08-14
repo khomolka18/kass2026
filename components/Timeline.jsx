@@ -119,7 +119,7 @@ const Timeline = () => {
       description:
         "Oversaw component strategy and design governance for an enterprise-wide design system. Facilitated user testing and research integration across teams using AEM, Quantum Metric, and UserZoom.",
       icon: <img src={`${BASE_PATH}/inspiration-icon.png`} alt="" className="h-7 w-auto invert" />,
-      color: "56, 248, 152",
+      color: "63, 217, 140",
     },
     {
       title: "Digital Designer",

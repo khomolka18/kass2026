@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { BASE_PATH, RESUME_URL } from "@/lib/config";
+import { BASE_PATH, RESUME_URL, SITE } from "@/lib/config";
 
 const StatCard = ({ number, label, delay }) => {
   const ref = useRef(null);
@@ -86,7 +86,8 @@ const About = () => {
           <h2 className="mb-4 font-display text-5xl font-bold md:text-6xl">
             About Me
           </h2>
-          <div className="mx-auto h-1 w-20 rounded-full bg-gradient-to-r from-primary to-violet" />
+          <div className="mx-auto mb-6 h-1 w-20 rounded-full bg-gradient-to-r from-primary to-violet" />
+          <p className="text-xl text-foreground/80 md:text-2xl">{SITE.tagline}</p>
         </motion.div>
 
         <div className="mb-16 grid gap-12 md:grid-cols-2">

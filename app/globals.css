@@ -11,7 +11,7 @@
      the light background — verified via contrast calculation, not eyeballed.
      Backgrounds/borders/gradients keep the original vivid accents below. */
   --primary-text: #1e75bc;
-  --mint-text: #058143;
+  --mint-text: #19814d;
   --flamingo-text: #d32269;
 }
 
@@ -20,7 +20,7 @@
   --foreground: #ffffff;
   --surface-color: #171725;
   --primary-text: #3f98e0;
-  --mint-text: #38f898;
+  --mint-text: #41d98d;
   --flamingo-text: #e14785;
 }
 
@@ -30,7 +30,7 @@
 
   --color-primary: #3f98e0;
   --color-violet: #6d13ff;
-  --color-mint: #38f898;
+  --color-mint: #3fd98c;
   --color-flamingo: #da236c;
   --color-primary-text: var(--primary-text);
   --color-mint-text: var(--mint-text);

@@ -15,7 +15,7 @@ const ProjectCard = ({ title, description, icon, iconImage, gradient, link, tags
       rel={link.startsWith("http") ? "noopener noreferrer" : undefined}
       className="block h-full"
     >
-      <div className={`relative flex min-h-80 flex-col justify-between rounded-xl border border-foreground/10 p-6 ${gradient}`}>
+      <div className={`relative flex min-h-80 flex-col justify-between gap-4 rounded-xl border border-foreground/10 p-6 ${gradient}`}>
         {iconImage ? (
           <img src={iconImage} alt="" aria-hidden="true" className="h-12 w-auto self-start dark:invert" />
         ) : (
@@ -46,7 +46,7 @@ const Projects = () => {
       iconImage: `${BASE_PATH}/modules-icon.png`,
       gradient: "bg-gradient-to-br from-primary/20 to-violet/20",
       link: `${BASE_PATH}/design-systems/`,
-      tags: ["Design Systems", "Figma", "Sketch", "Accessibility", "Cross-brand", "Claude"],
+      tags: ["Figma", "Sketch", "Accessibility", "Cross-brand", "Claude", "Collaboration", "Workshops", "User Testing"],
     },
     {
       title: "UX/UI Design",
@@ -55,16 +55,16 @@ const Projects = () => {
       iconImage: `${BASE_PATH}/uxui-icon.png`,
       gradient: "bg-gradient-to-br from-violet/20 to-flamingo/20",
       link: `${BASE_PATH}/ux-ui-design/`,
-      tags: ["GenMobile", "Kohl's", "Boost Mobile", "Sling", "DISH", "Centerline"],
+      tags: ["DISH", "Sling", "GenMobile", "Kohl's", "Boost Mobile", "Centerline", "ParkiFi", "HID Global", "Propeller MKE"],
     },
     {
       title: "Inspiration",
       description:
         "When I'm not designing systems, I'm making things with my hands – macramé, charcoal sketches, and painting.",
       iconImage: `${BASE_PATH}/inspiration-icon.png`,
-      gradient: "bg-gradient-to-br from-flamingo/20 to-mint/20",
+      gradient: "bg-gradient-to-br from-mint/25 to-flamingo/15",
       link: `${BASE_PATH}/inspiration/`,
-      tags: ["Macramé", "Charcoal", "Painting", "Architecture", "Cooking", "Dance"],
+      tags: ["Macramé", "Charcoal", "Painting", "Architecture", "Cooking", "Dance", "Music", "Video Games", "Pets"],
     },
   ];
 

@@ -2,12 +2,12 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { BASE_PATH, RESUME_URL, SITE } from "@/lib/config";
+import { BASE_PATH, RESUME_URL } from "@/lib/config";
 
 const Hero = ({ revealed = true }) => {
   const [text, setText] = useState("");
   const [mounted, setMounted] = useState(false);
-  const fullText = "Hi, I'm Kassee";
+  const fullText = "I'm Kassee";
 
   useEffect(() => {
     setMounted(true);
@@ -78,21 +78,12 @@ const Hero = ({ revealed = true }) => {
         </motion.h1>
 
         <motion.p
-          className="mx-auto mb-2 max-w-2xl text-xl text-foreground/80 md:text-2xl"
+          className="mx-auto mb-8 max-w-xl text-base italic text-foreground/60"
           initial={hidden}
           animate={revealed ? visible : hidden}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          {SITE.tagline}
-        </motion.p>
-
-        <motion.p
-          className="mx-auto mb-8 max-w-xl text-sm italic text-foreground/60"
-          initial={hidden}
-          animate={revealed ? visible : hidden}
-          transition={{ duration: 0.8, delay: 0.45 }}
-        >
-          (who also thinks taglines are a little overrated)
+          (who thinks taglines are a little overrated)
         </motion.p>
 
         <motion.div

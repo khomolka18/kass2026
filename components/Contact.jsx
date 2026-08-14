@@ -122,9 +122,11 @@ const Contact = () => {
             <div>
               <h3 className="mb-4 text-2xl font-bold text-foreground">Let&apos;s Connect</h3>
               <p className="mb-8 leading-relaxed text-foreground/60">
-                Based in Denver, but open to remote opportunities that align with my values.
-                Whether it&apos;s to skim my resume, collaborate, or grab a coffee, I&apos;m open
-                to talk virtually or in person.
+                Based in Denver, but open to discussing any opportunity that awaits. Looking to
+                obtain a full-time position that will challenge me to further develop my strengths
+                and allow me to create high quality and meaningful work. Whether it&apos;s to skim
+                my resume, collaborate, or grab a glass of wine I&apos;m open to talk virtually or
+                in person.
               </p>
             </div>
 
