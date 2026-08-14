@@ -106,7 +106,7 @@ const UxUiDesignContent = () => {
             <motion.a
               href={`${BASE_PATH}/ux-ui-design/genmobile-case-study/`}
               className="rounded-lg bg-gradient-to-r from-primary to-violet px-8 py-3 font-semibold text-white"
-              whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(63, 152, 224, 0.5)" }}
+              whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(63, 152, 224, 0.25)" }}
               whileTap={{ scale: 0.95 }}
             >
               View Interactive Case Study →

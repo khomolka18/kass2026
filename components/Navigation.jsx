@@ -118,7 +118,7 @@ const Navigation = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-lg bg-primary-button px-6 py-2 text-sm font-semibold text-white"
-                whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(63, 152, 224, 0.5)" }}
+                whileHover={{ scale: 1.05, boxShadow: "0 0 14px rgba(63, 152, 224, 0.25)" }}
                 whileTap={{ scale: 0.95 }}
               >
                 Resume ↗

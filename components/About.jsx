@@ -224,7 +224,7 @@ const About = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block rounded-lg bg-primary-button px-8 py-3 font-semibold text-white"
-            whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(63, 152, 224, 0.5)" }}
+            whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(63, 152, 224, 0.25)" }}
             whileTap={{ scale: 0.95 }}
           >
             Download Resume ↗

@@ -108,7 +108,7 @@ const Hero = ({ revealed = true }) => {
               document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
             }}
             className="rounded-lg bg-primary-button px-8 py-3 font-semibold text-white"
-            whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(63, 152, 224, 0.5)" }}
+            whileHover={{ scale: 1.05, boxShadow: "0 0 14px rgba(63, 152, 224, 0.25)" }}
             whileTap={{ scale: 0.95 }}
           >
             View My Work
