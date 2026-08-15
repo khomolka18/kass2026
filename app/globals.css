@@ -85,6 +85,19 @@ body {
   animation: blob-pulse 10s ease-in-out infinite;
 }
 
+/* iOS/Safari draw a native play-button overlay on any video it refuses to
+   autoplay (Low Power Mode, Low Data Mode). The hero video is decorative, so
+   that control is suppressed rather than left sitting under the headline. */
+video::-webkit-media-controls,
+video::-webkit-media-controls-panel,
+video::-webkit-media-controls-play-button,
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+  appearance: none;
+  opacity: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

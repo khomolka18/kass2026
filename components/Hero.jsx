@@ -33,12 +33,19 @@ const Hero = ({ revealed = true }) => {
 
   return (
     <section id="home" className="relative flex min-h-screen items-center justify-center overflow-hidden bg-dark">
+      {/* Decorative only. iOS blocks autoplay under Low Power Mode and falls
+          back to a native play-button overlay, so controls are suppressed in
+          globals.css and taps pass straight through. */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 h-full w-full object-cover opacity-60"
+        controls={false}
+        disablePictureInPicture
+        aria-hidden="true"
+        tabIndex={-1}
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-60"
         src={`${BASE_PATH}/video/CircleSlower_1300x1300.mp4`}
       />
 
