@@ -91,30 +91,38 @@ const IntroReveal = ({ onReveal }) => {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-[200] flex items-center justify-center overflow-hidden"
+      className="fixed inset-0 z-[200] flex items-center justify-center overflow-hidden bg-dark"
       style={{ visibility: "hidden", opacity: 0 }}
     >
+      {/* The source is 1920x512 (3.75:1). `object-cover` on a portrait phone
+          would scale it to ~3000px wide for a heavily zoomed centre crop, so
+          it letterboxes as a band on small screens and only covers once the
+          viewport is wide enough for that to look intentional. */}
       <video
         ref={introVideoRef}
         src={`${BASE_PATH}/video/DispChrmAbb_1920x512.mp4`}
         autoPlay
         muted
         playsInline
-        className="absolute inset-0 h-full w-full bg-dark object-cover"
+        controls={false}
+        disablePictureInPicture
+        aria-hidden="true"
+        tabIndex={-1}
+        className="pointer-events-none absolute inset-0 h-full w-full object-contain md:object-cover"
       />
 
-      <div className="relative z-10 flex flex-col items-center gap-4 px-6 text-center">
+      <div className="relative z-10 flex w-full max-w-full flex-col items-center gap-3 px-5 text-center sm:gap-4 sm:px-6">
         <div
           ref={logoRef}
-          className="font-display text-3xl font-bold text-gradient md:text-5xl"
+          className="font-display text-2xl font-bold text-gradient break-words sm:text-3xl md:text-5xl"
           style={{ perspective: "600px" }}
         >
           {LOGO_TEXT}
         </div>
-        <div ref={line1Ref} className="text-base text-foreground/80 md:text-xl" style={{ perspective: "600px" }}>
+        <div ref={line1Ref} className="text-sm text-foreground/80 sm:text-base md:text-xl" style={{ perspective: "600px" }}>
           {LINE1_TEXT}
         </div>
-        <div ref={line2Ref} className="text-sm italic text-foreground/60 md:text-base" style={{ perspective: "600px" }}>
+        <div ref={line2Ref} className="text-xs italic text-foreground/60 sm:text-sm md:text-base" style={{ perspective: "600px" }}>
           {LINE2_TEXT}
         </div>
       </div>
