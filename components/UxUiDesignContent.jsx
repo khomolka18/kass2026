@@ -45,7 +45,7 @@ const UxUiDesignContent = () => {
           className="relative z-10 mx-auto max-w-3xl text-center"
         >
           <h1 className="mb-6 font-display text-5xl font-bold md:text-7xl">
-            UX/UI <span className="text-gradient">Design</span>
+            UX/UI Design
           </h1>
           <div className="mx-auto mb-8 h-1 w-20 rounded-full bg-gradient-to-r from-violet to-flamingo" />
           <p className="text-lg leading-relaxed text-foreground/70 md:text-xl">
@@ -56,18 +56,8 @@ const UxUiDesignContent = () => {
         </motion.div>
       </section>
 
-      <section className="px-4 py-20 md:px-8">
+      <section className="px-4 pt-4 pb-20 md:px-8">
         <div className="mx-auto max-w-5xl space-y-24">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center font-display text-3xl font-bold md:text-4xl"
-          >
-            My <span className="text-gradient">Focus</span>
-          </motion.h2>
-
           {stories.map((story) => (
             <StorySection key={story.title} {...story} />
           ))}
@@ -83,9 +73,10 @@ const UxUiDesignContent = () => {
             transition={{ duration: 0.6 }}
             className="mb-12 text-center"
           >
-            <h2 className="mb-4 font-display text-3xl font-bold md:text-4xl">
-              Case Study: <span className="text-gradient">GenMobile</span>
+            <h2 className="mb-4 font-display text-5xl font-bold md:text-6xl">
+              Case Study: GenMobile
             </h2>
+            <div className="mx-auto mb-6 h-1 w-20 rounded-full bg-gradient-to-r from-violet to-flamingo" />
             <p className="mx-auto max-w-2xl leading-relaxed text-foreground/70">
               Upon obtaining GenMobile, a wireless MVNO provider that serves lower-income
               customers and international families, DISH leveraged its Front End UX team to
@@ -98,11 +89,8 @@ const UxUiDesignContent = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="flex flex-col items-center gap-6 rounded-2xl border border-foreground/10 bg-surface/50 p-12 text-center"
+            className="flex justify-center"
           >
-            <p className="max-w-md text-foreground/60">
-              Walk through the full interactive prototype, screen by screen.
-            </p>
             <motion.a
               href={`${BASE_PATH}/ux-ui-design/genmobile-case-study/`}
               className="rounded-lg bg-gradient-to-r from-primary to-violet px-8 py-3 font-semibold text-white"

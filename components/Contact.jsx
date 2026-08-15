@@ -105,9 +105,6 @@ const Contact = () => {
           <h2 className="mb-4 font-display text-5xl font-bold md:text-6xl">
             Get In Touch
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-foreground/60">
-            Have a project in mind, or just want to talk shop? I&apos;d love to hear from you.
-          </p>
           <div className="mx-auto mt-6 h-1 w-20 rounded-full bg-gradient-to-r from-primary to-violet" />
         </motion.div>
 

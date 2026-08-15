@@ -3,13 +3,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-// #2b2b33 (dark charcoal) reads fine on the light background (13:1) but
-// nearly disappears against the dark theme's near-black page background
-// (1.4:1, fails the 3:1 UI-component minimum) — verified via contrast
-// calculation. #606072 clears 3:1 there while staying dark/neutral.
-const TRACK_COLOR_LIGHT = "#2b2b33";
-const TRACK_COLOR_DARK = "#606072";
-
 const ThemeToggle = () => {
   const [theme, setTheme] = useState(null);
 
@@ -28,7 +21,6 @@ const ThemeToggle = () => {
   if (!theme) return null;
 
   const isDark = theme === "dark";
-  const trackColor = isDark ? TRACK_COLOR_DARK : TRACK_COLOR_LIGHT;
 
   return (
     <motion.button
@@ -37,26 +29,30 @@ const ThemeToggle = () => {
       transition={{ duration: 0.3 }}
       onClick={toggleTheme}
       whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      className="fixed bottom-8 right-4 z-50 flex h-10 w-20 items-center rounded-full p-1 shadow-lg"
-      style={{ backgroundColor: trackColor }}
+      whileTap={{ scale: 0.9 }}
+      className="fixed bottom-8 right-4 z-50 flex h-14 w-14 items-center justify-center rounded-full border border-foreground/10 bg-surface text-foreground shadow-lg"
       title={isDark ? "Switch to light mode" : "Switch to dark mode"}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-      role="switch"
-      aria-checked={isDark}
     >
-      <motion.div
-        className="relative h-8 w-8 rounded-full bg-white"
-        animate={{ x: isDark ? 40 : 0 }}
-        transition={{ type: "spring", stiffness: 400, damping: 30 }}
-      >
-        {isDark && (
-          <div
-            className="absolute h-4 w-4 rounded-full"
-            style={{ backgroundColor: trackColor, top: "3px", right: "2px" }}
+      {isDark ? (
+        <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
           />
-        )}
-      </motion.div>
+        </svg>
+      ) : (
+        <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M21.752 15.002A9.72 9.72 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
+          />
+        </svg>
+      )}
     </motion.button>
   );
 };

@@ -59,7 +59,7 @@ const InspirationContent = () => {
           className="relative z-10 mx-auto max-w-3xl text-center"
         >
           <h1 className="mb-6 font-display text-5xl font-bold md:text-7xl">
-            <span className="text-gradient">Inspiration</span>
+            Inspiration
           </h1>
           <div className="mx-auto mb-8 h-1 w-20 rounded-full bg-gradient-to-r from-mint to-primary" />
           <p className="text-lg leading-relaxed text-foreground/70 md:text-xl">

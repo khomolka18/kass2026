@@ -236,8 +236,9 @@ const GenMobileCaseStudyContent = () => {
             </div>
           </SectionHeading>
 
-          <div className="grid gap-6 md:grid-cols-3">
-            <InfoTile title="Customers">
+          <div className="mt-12 grid gap-10 md:grid-cols-3 md:divide-x md:divide-foreground/10">
+            <div className="md:pr-8">
+              <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-foreground/40">Customers</h3>
               <div className="space-y-2 text-sm text-foreground/70">
                 <p>
                   <span className="font-semibold text-foreground">Age</span> 21–50
@@ -250,8 +251,9 @@ const GenMobileCaseStudyContent = () => {
                   2nd generation)
                 </p>
               </div>
-            </InfoTile>
-            <InfoTile title="Goals">
+            </div>
+            <div className="md:px-8">
+              <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-foreground/40">Goals</h3>
               <ol className="space-y-2 text-sm text-foreground/70">
                 {["Improve User Experience", "Improved SEO", "Streamline Content Organization", "Improved Conversion Funnel"].map(
                   (goal, i) => (
@@ -262,9 +264,10 @@ const GenMobileCaseStudyContent = () => {
                   )
                 )}
               </ol>
-            </InfoTile>
-            <InfoTile title="KPIs">
-              <div className="flex flex-wrap gap-2">
+            </div>
+            <div className="md:pl-8">
+              <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-foreground/40">KPIs</h3>
+              <p className="text-sm text-foreground/70">
                 {[
                   "Bounce rate",
                   "Time on page",
@@ -276,16 +279,9 @@ const GenMobileCaseStudyContent = () => {
                   "Scroll depth",
                   "Conversion rate",
                   "Abandonment rate",
-                ].map((kpi) => (
-                  <span
-                    key={kpi}
-                    className="rounded-full border border-foreground/10 bg-foreground/5 px-3 py-1 text-xs text-foreground/70"
-                  >
-                    {kpi}
-                  </span>
-                ))}
-              </div>
-            </InfoTile>
+                ].join(" · ")}
+              </p>
+            </div>
           </div>
         </div>
       </section>

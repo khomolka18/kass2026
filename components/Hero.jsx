@@ -67,6 +67,8 @@ const Hero = ({ revealed = true }) => {
         ))}
       </div>
 
+      <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent md:h-64" />
+
       <div className="relative z-10 px-4 text-center">
         <motion.h1
           className="mb-4 font-display text-6xl font-bold md:text-8xl"

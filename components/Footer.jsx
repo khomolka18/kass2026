@@ -19,10 +19,7 @@ const Footer = () => {
             <h3 className="mb-4 font-display text-2xl font-bold">
               <span className="text-gradient">{SITE.name}</span>
             </h3>
-            <p className="mb-4 text-sm leading-relaxed text-foreground/60">
-              {SITE.role} – {SITE.tagline}
-            </p>
-            <div className="flex gap-4">
+            <div className="mb-4 flex gap-4">
               {socialLinks.map((social) => (
                 <motion.a
                   key={social.name}

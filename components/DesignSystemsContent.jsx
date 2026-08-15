@@ -5,10 +5,15 @@ import Navigation from "@/components/Navigation";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import StorySection from "@/components/StorySection";
+import JourneyIllustration from "@/components/JourneyIllustration";
+import CampfireDivider from "@/components/illustrations/CampfireDivider";
+import MomentumDivider from "@/components/illustrations/MomentumDivider";
+import TeamGearIllustration from "@/components/illustrations/TeamGearIllustration";
+
+const dividers = [CampfireDivider, MomentumDivider, TeamGearIllustration];
 
 const stories = [
   {
-    icon: "🔥",
     title: "The Start of Campfire",
     paragraphs: [
       "Our expertise lay in being open and welcoming. Campfire, initially a small team, experienced rapid growth while establishing trusted relationships between departments. The team endeavored to foster collaboration, aiming to comprehensively understand every aspect of the business and create a design system seamlessly embraced by each brand. This involved conducting design workshops, internal interviews, design and development test sprints, and QA reviews to ensure that each team felt valued.",
@@ -16,16 +21,13 @@ const stories = [
     ],
   },
   {
-    icon: "📈",
     title: "Gaining Momentum",
-    reverse: true,
     paragraphs: [
       "I'm a senior product designer who builds scalable, inclusive design systems. My work weaves together designers, developers, authors, and researchers – because good design isn't just what we see. It's how teams come together to build it.",
       "Whether I'm crafting macramé by hand or leading cross-functional workshops, I believe in structure, clarity, and creative collaboration. I'm here to make things that last – and bring people along in the process.",
     ],
   },
   {
-    icon: "🎨",
     title: "Figma Transition",
     paragraphs: [
       "The DISH enterprise recently signed with Figma (previously Sketch/InVision), and we dedicated ourselves to swiftly rebuilding the extensive Campfire library while exploring its full range of capabilities. We initiated a design refresh and restructured our system to adhere to atomic standards.",
@@ -33,9 +35,7 @@ const stories = [
     ],
   },
   {
-    icon: "🏢",
     title: "Enterprise Adoption",
-    reverse: true,
     paragraphs: [
       "The adoption of a DS has become a pivotal strategy in our enterprise, led by our small yet versatile team. Recognizing the need for cohesive design across departments, Figma plays a crucial role and we grew even stronger during the transition, providing a collaborative platform for real-time teamwork.",
       "Our DS is now recognized and used throughout 10 foot, internal smart home tools, all web experiences, as well as native apps throughout the enterprise. This integration streamlines the handoff process between all departments, fostering a more efficient workflow. The adoption of a digital design system has now proven to be essential for cohesion, collaboration, and efficiency within our dynamic, cross-functional enterprise environment.",
@@ -54,30 +54,44 @@ const DesignSystemsContent = () => {
           <div className="absolute bottom-10 left-0 h-96 w-96 rounded-full bg-gradient-to-tr from-flamingo/20 to-primary/30 blur-3xl animate-blob" style={{ animationDelay: "3s" }} />
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="relative z-10 mx-auto max-w-3xl text-center"
-        >
-          <h1 className="mb-6 font-display text-5xl font-bold md:text-7xl">
-            Design <span className="text-gradient">Systems</span>
-          </h1>
-          <div className="mx-auto mb-8 h-1 w-20 rounded-full bg-gradient-to-r from-primary to-violet" />
-          <p className="text-lg leading-relaxed text-foreground/70 md:text-xl">
-            I specialize in large-scale design systems that support consistency, flexibility, and
-            growth. My work bridges design, development, and documentation across complex teams and
-            products.
-          </p>
-        </motion.div>
+        <div className="relative z-10 flex w-full flex-col items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mx-auto max-w-3xl text-center"
+          >
+            <h1 className="mb-6 font-display text-5xl font-bold md:text-7xl">
+              Design Systems
+            </h1>
+            <div className="mx-auto mb-8 h-1 w-20 rounded-full bg-gradient-to-r from-primary to-violet" />
+            <p className="text-lg leading-relaxed text-foreground/70 md:text-xl">
+              I specialize in large-scale design systems that support consistency, flexibility, and
+              growth. My work bridges design, development, and documentation across complex teams and
+              products.
+            </p>
+          </motion.div>
+
+          <JourneyIllustration className="mx-auto mt-10 h-auto w-full max-w-5xl px-4 opacity-70 dark:invert md:px-8" />
+        </div>
       </section>
 
       <section className="px-4 py-20 md:px-8">
-        <div className="mx-auto max-w-5xl space-y-24">
-          {stories.map((story) => (
-            <StorySection key={story.title} {...story} />
-          ))}
-        </div>
+        {stories.map((story, i) => {
+          const Divider = dividers[i];
+          return (
+            <div key={story.title}>
+              <div className="mx-auto max-w-5xl">
+                <StorySection {...story} />
+              </div>
+              {Divider && (
+                <div className="my-24 flex justify-center px-4 md:px-8">
+                  <Divider className="h-auto w-full max-w-5xl opacity-70 dark:invert" />
+                </div>
+              )}
+            </div>
+          );
+        })}
       </section>
 
       <Contact />

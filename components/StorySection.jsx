@@ -16,9 +16,11 @@ const StorySection = ({ icon, image, imageAlt, title, paragraphs, reverse = fals
         <img src={image} alt={imageAlt || ""} className="h-full w-full object-cover" />
       </div>
     ) : (
-      <GlowCard className="mx-auto flex h-32 w-32 shrink-0 items-center justify-center rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/10 via-violet/10 to-flamingo/10 text-6xl md:mx-0">
-        {icon}
-      </GlowCard>
+      icon && (
+        <GlowCard className="mx-auto flex h-32 w-32 shrink-0 items-center justify-center rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/10 via-violet/10 to-flamingo/10 text-6xl md:mx-0">
+          {icon}
+        </GlowCard>
+      )
     )}
 
     <div className="min-w-0 flex-1">

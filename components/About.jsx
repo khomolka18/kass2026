@@ -66,6 +66,7 @@ const About = () => {
   const weaknesses = [
     "A bit awkward in front of a crowd",
     "Handwriting of an 8 year old",
+    "A more than healthy knowledge of cheese (it's a Wisco thing)",
   ];
 
   return (
