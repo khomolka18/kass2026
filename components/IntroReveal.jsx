@@ -94,10 +94,10 @@ const IntroReveal = ({ onReveal }) => {
       className="fixed inset-0 z-[200] flex items-center justify-center overflow-hidden bg-dark"
       style={{ visibility: "hidden", opacity: 0 }}
     >
-      {/* The source is 1920x512 (3.75:1). `object-cover` on a portrait phone
-          would scale it to ~3000px wide for a heavily zoomed centre crop, so
-          it letterboxes as a band on small screens and only covers once the
-          viewport is wide enough for that to look intentional. */}
+      {/* On phones this runs as a full-width band a third of the screen tall,
+          centred. Covering the whole portrait viewport meant scaling the
+          1920x512 source ~8x; a third of that height cuts the zoom to ~2.7x
+          while staying flush to both edges. Full-bleed from md up. */}
       <video
         ref={introVideoRef}
         src={`${BASE_PATH}/video/DispChrmAbb_1920x512.mp4`}
@@ -108,21 +108,31 @@ const IntroReveal = ({ onReveal }) => {
         disablePictureInPicture
         aria-hidden="true"
         tabIndex={-1}
-        className="pointer-events-none absolute inset-0 h-full w-full object-contain md:object-cover"
+        className="pointer-events-none absolute inset-x-0 top-1/2 h-1/3 w-full -translate-y-1/2 object-cover md:top-0 md:h-full md:translate-y-0"
       />
 
-      <div className="relative z-10 flex w-full max-w-full flex-col items-center gap-3 px-5 text-center sm:gap-4 sm:px-6">
+      <div className="relative z-10 flex w-full max-w-full flex-col items-center gap-4 px-4 text-center sm:gap-5 sm:px-6">
+        {/* Sized in vw so the wordmark spans the full screen width and stays
+            on one line at any phone size, rather than breaking mid-word. */}
         <div
           ref={logoRef}
-          className="font-display text-2xl font-bold text-gradient break-words sm:text-3xl md:text-5xl"
-          style={{ perspective: "600px" }}
+          className="font-display font-bold text-gradient whitespace-nowrap"
+          style={{ perspective: "600px", fontSize: "clamp(1.5rem, 8.6vw, 3rem)" }}
         >
           {LOGO_TEXT}
         </div>
-        <div ref={line1Ref} className="text-sm text-foreground/80 sm:text-base md:text-xl" style={{ perspective: "600px" }}>
+        <div
+          ref={line1Ref}
+          className="leading-snug text-foreground/80"
+          style={{ perspective: "600px", fontSize: "clamp(1rem, 4.4vw, 1.25rem)" }}
+        >
           {LINE1_TEXT}
         </div>
-        <div ref={line2Ref} className="text-xs italic text-foreground/60 sm:text-sm md:text-base" style={{ perspective: "600px" }}>
+        <div
+          ref={line2Ref}
+          className="max-w-[34ch] italic leading-snug text-foreground/60 sm:max-w-none"
+          style={{ perspective: "600px", fontSize: "clamp(0.875rem, 3.7vw, 1.125rem)" }}
+        >
           {LINE2_TEXT}
         </div>
       </div>
