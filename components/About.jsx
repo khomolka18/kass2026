@@ -56,8 +56,8 @@ const About = () => {
 
   const strengths = [
     "Eager, and always thinking about the bigger picture",
-    "Not afraid of a challenge – or asking for help",
-    "Organized, and fast to learn new tools",
+    "Not afraid of a challenge, or asking for help from my teammates",
+    "Quick to learn new tools, and diligent about documenting changes",
     "Thrives in cross-functional, collaborative environments",
     "Confident in my personal and professional values",
     "Damn good taste in music",
@@ -128,7 +128,7 @@ const About = () => {
             >
               These days I&apos;m seeking opportunities that align with my values – progressive,
               mission-driven spaces where design can create meaningful impact, particularly around
-              equity, care, and innovation.
+              equality, care, and innovation.
             </motion.p>
           </div>
 

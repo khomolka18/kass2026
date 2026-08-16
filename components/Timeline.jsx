@@ -92,14 +92,52 @@ const TimelineItem = ({ title, company, period, description, icon, color, index 
   );
 };
 
+// A life event rather than a role — sits on the rail as a quiet label so it
+// reads as a marker between jobs, not another card.
+const TimelineMilestone = ({ label, note }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 10 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5 }}
+      className="relative mb-12 flex justify-start pl-16 md:mb-16 md:justify-center md:pl-0"
+    >
+      <div className="relative z-10 inline-flex items-center gap-3 rounded-xl border border-foreground/10 bg-surface px-5 py-3">
+        {/* Echoes the location pins in the Design Systems journey illustration. */}
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+          className="h-5 w-5 flex-shrink-0 text-primary-text"
+        >
+          <path d="M12 21s7-5.686 7-11a7 7 0 1 0-14 0c0 5.314 7 11 7 11Z" />
+          <circle cx="12" cy="10" r="2.5" />
+        </svg>
+        <span className="text-left">
+          <span className="block text-sm font-bold text-foreground">{label}</span>
+          <span className="block text-xs leading-snug text-foreground/50">{note}</span>
+        </span>
+      </div>
+    </motion.div>
+  );
+};
+
 const Timeline = () => {
   const experiences = [
     {
       title: "UX/UI Consultant",
       company: "Centerline",
-      period: "November 2025 - Present",
+      period: "November 2025 - January 2026",
       description:
-        "Supporting an early-stage website refresh pilot for client HID – kickoff and ideation meetings, wireframes, interactive prototyping, and iterating on design layouts to facilitate usability testing and responsive components.",
+        "Supported an early-stage website refresh pilot for client HID – kickoff and ideation meetings, wireframes, interactive prototyping, and iteration on design layouts to facilitate usability testing and responsive components.",
       icon: <img src={`${BASE_PATH}/uxui-icon.png`} alt="" className="h-7 w-auto invert" />,
       color: "63, 152, 224",
     },
@@ -131,6 +169,10 @@ const Timeline = () => {
       color: "218, 35, 108",
     },
     {
+      milestone: "Milwaukee → Denver",
+      note: "Happy to see a wonderful Milwaukee scene here as well!",
+    },
+    {
       title: "Web Designer and Front End Developer",
       company: "Kohl's Department Stores",
       period: "August 2016 - July 2017",
@@ -138,6 +180,33 @@ const Timeline = () => {
         "Concepted, designed, and developed landing pages for Kohls.com – primarily women's and beauty pages – plus enterprise-wide modules and seasonal B2B campaigns.",
       icon: <img src={`${BASE_PATH}/uxui-icon.png`} alt="" className="h-7 w-auto invert" />,
       color: "63, 152, 224",
+    },
+    {
+      title: "Graphic Designer",
+      company: "Propeller MKE",
+      period: "May 2016 - August 2016",
+      description:
+        "Contributed to rebranding and campaign execution for regional clients – logo design, packaging, print, and digital collateral in a collaborative studio environment.",
+      icon: <img src={`${BASE_PATH}/inspiration-icon.png`} alt="" className="h-7 w-auto invert" />,
+      color: "109, 19, 255",
+    },
+    {
+      title: "Interactive Designer",
+      company: "Pocket Giants",
+      period: "August 2015 - August 2016",
+      description:
+        "Designed email, print, and social advertising while planning wireframes, site structure, and ongoing website maintenance across multiple CMS platforms. Built client documentation and analytics reporting so clients could manage and measure their own sites.",
+      icon: <img src={`${BASE_PATH}/uxui-icon.png`} alt="" className="h-7 w-auto invert" />,
+      color: "63, 217, 140",
+    },
+    {
+      title: "Design Intern to Design Assistant",
+      company: "Carl Designs",
+      period: "April 2014 - August 2015",
+      description:
+        "Developed branding strategies and print campaigns for Milwaukee businesses, working within established brand guidelines. Applied HTML/CSS across web design, content integration, and CMS customization after being hired on from the internship.",
+      icon: <img src={`${BASE_PATH}/modules-icon.png`} alt="" className="h-7 w-auto invert" />,
+      color: "218, 35, 108",
     },
   ];
 
@@ -169,9 +238,19 @@ const Timeline = () => {
         <div className="md:hidden absolute left-6 top-32 bottom-0 w-0.5 bg-gradient-to-b from-primary via-violet to-transparent" />
 
         <div className="relative">
-          {experiences.map((exp, index) => (
-            <TimelineItem key={exp.title} {...exp} index={index} />
-          ))}
+          {(() => {
+            // Milestones sit inline but aren't roles, so they're skipped when
+            // numbering — otherwise they'd break the left/right alternation
+            // and the stagger delay of the cards around them.
+            let roleIndex = -1;
+            return experiences.map((exp) => {
+              if (exp.milestone) {
+                return <TimelineMilestone key={exp.milestone} label={exp.milestone} note={exp.note} />;
+              }
+              roleIndex += 1;
+              return <TimelineItem key={exp.title} {...exp} index={roleIndex} />;
+            });
+          })()}
         </div>
 
         <motion.div
