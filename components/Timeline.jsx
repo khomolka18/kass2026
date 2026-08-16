@@ -170,7 +170,7 @@ const Timeline = () => {
     },
     {
       milestone: "Milwaukee → Denver",
-      note: "Happy to see a wonderful Milwaukee scene here as well!",
+      note: "Missing those quality cheese curds",
     },
     {
       title: "Web Designer and Front End Developer",
