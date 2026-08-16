@@ -16,8 +16,6 @@ import { BASE_PATH } from "@/lib/config";
 // crossfade was a silent no-op there) — swapped for `autoAlpha` here so it
 // actually plays.
 const LOGO_TEXT = "KASS_E /HOMOLKA";
-const LINE1_TEXT = "Product Designer based in Denver,";
-const LINE2_TEXT = "who also thinks one sentence taglines are a bit overrated.";
 
 const IntroReveal = ({ onReveal }) => {
   const [mounted, setMounted] = useState(false);
@@ -26,8 +24,6 @@ const IntroReveal = ({ onReveal }) => {
   const containerRef = useRef(null);
   const introVideoRef = useRef(null);
   const logoRef = useRef(null);
-  const line1Ref = useRef(null);
-  const line2Ref = useRef(null);
   const onRevealRef = useRef(onReveal);
   onRevealRef.current = onReveal;
 
@@ -54,8 +50,6 @@ const IntroReveal = ({ onReveal }) => {
     gsap.registerPlugin(SplitText);
 
     const logoSplit = new SplitText(logoRef.current, { type: "words, chars" });
-    const line1Split = new SplitText(line1Ref.current, { type: "words, chars" });
-    const line2Split = new SplitText(line2Ref.current, { type: "words, chars" });
 
     const tl = gsap.timeline({
       onComplete: () => setShow(false),
@@ -63,26 +57,21 @@ const IntroReveal = ({ onReveal }) => {
 
     tl.set(containerRef.current, { autoAlpha: 1 })
       .set(logoSplit.chars, { rotationY: 180, force3D: true, autoAlpha: 0, y: 20 })
-      .set(line1Split.chars, { rotationY: 180, force3D: true, autoAlpha: 0, y: 20 })
-      .set(line2Split.chars, { rotationY: 180, force3D: true, autoAlpha: 0, y: 20 })
       .to(introVideoRef.current, { duration: 0.4, autoAlpha: 0, ease: "none" }, "+=1.5")
       .to(logoSplit.chars, { duration: 0.4, stagger: 0.02, autoAlpha: 1, y: 0, ease: "power4.inOut" }, "+=0.4")
       .to(logoSplit.chars, { duration: 0.4, stagger: 0.02, rotationY: 360, force3D: true, ease: "power4.inOut" })
-      .to(line1Split.chars, { duration: 0.3, stagger: 0.012, autoAlpha: 1, y: 0, ease: "power4.inOut" }, "+=0.2")
-      .to(line1Split.chars, { duration: 0.3, stagger: 0.012, rotationY: 360, force3D: true, ease: "power4.inOut" }, "-=0.4")
-      .to(line2Split.chars, { duration: 0.3, stagger: 0.01, autoAlpha: 1, y: 0, ease: "power4.inOut" }, "+=0.2")
-      .to(line2Split.chars, { duration: 0.3, stagger: 0.01, rotationY: 360, force3D: true, ease: "power4.inOut" }, "-=0.4")
+      // Only a beat after the spin — a longer hold reads as the intro having
+      // stalled. onReveal fires as the fade starts, so the Hero headline is
+      // already typing while the overlay dissolves rather than after it.
       .to(
         containerRef.current,
-        { duration: 0.6, autoAlpha: 0, onStart: () => onRevealRef.current?.() },
-        "+=0.6"
+        { duration: 0.5, autoAlpha: 0, onStart: () => onRevealRef.current?.() },
+        "+=0.15"
       );
 
     return () => {
       tl.kill();
       logoSplit.revert();
-      line1Split.revert();
-      line2Split.revert();
     };
   }, [show]);
 
@@ -91,8 +80,11 @@ const IntroReveal = ({ onReveal }) => {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-[200] flex items-center justify-center overflow-hidden bg-dark"
-      style={{ visibility: "hidden", opacity: 0 }}
+      // Deliberately not `bg-dark` — that token follows the theme and resolves
+      // to #f7f7fb in light mode, washing the intro out to grey. The overlay is
+      // always dark, so the colour is pinned.
+      className="fixed inset-0 z-[200] flex items-center justify-center overflow-hidden"
+      style={{ visibility: "hidden", opacity: 0, backgroundColor: "#0a0a14" }}
     >
       {/* On phones this runs as a full-width band a third of the screen tall,
           centred. Covering the whole portrait viewport meant scaling the
@@ -108,10 +100,10 @@ const IntroReveal = ({ onReveal }) => {
         disablePictureInPicture
         aria-hidden="true"
         tabIndex={-1}
-        className="pointer-events-none absolute inset-x-0 top-1/2 h-1/3 w-full -translate-y-1/2 object-cover md:top-0 md:h-full md:translate-y-0"
+        className="intro-video-fade pointer-events-none absolute inset-x-0 top-1/2 h-1/3 w-full -translate-y-1/2 object-cover md:top-0 md:h-full md:translate-y-0"
       />
 
-      <div className="relative z-10 flex w-full max-w-full flex-col items-center gap-4 px-4 text-center sm:gap-5 sm:px-6">
+      <div className="relative z-10 flex w-full max-w-full flex-col items-center px-4 text-center sm:px-6">
         {/* Sized in vw so the wordmark spans the full screen width and stays
             on one line at any phone size, rather than breaking mid-word. */}
         <div
@@ -120,20 +112,6 @@ const IntroReveal = ({ onReveal }) => {
           style={{ perspective: "600px", fontSize: "clamp(1.5rem, 8.6vw, 3rem)" }}
         >
           {LOGO_TEXT}
-        </div>
-        <div
-          ref={line1Ref}
-          className="leading-snug text-foreground/80"
-          style={{ perspective: "600px", fontSize: "clamp(1rem, 4.4vw, 1.25rem)" }}
-        >
-          {LINE1_TEXT}
-        </div>
-        <div
-          ref={line2Ref}
-          className="max-w-[34ch] italic leading-snug text-foreground/60 sm:max-w-none"
-          style={{ perspective: "600px", fontSize: "clamp(0.875rem, 3.7vw, 1.125rem)" }}
-        >
-          {LINE2_TEXT}
         </div>
       </div>
     </div>

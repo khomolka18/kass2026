@@ -85,6 +85,17 @@ body {
   animation: blob-pulse 10s ease-in-out infinite;
 }
 
+/* On phones the intro video runs as a band rather than full-bleed, which left
+   two hard horizontal seams against the backdrop. Fading the top and bottom
+   edges dissolves it into the background instead. Full-bleed from md up, where
+   there are no edges to hide. */
+@media (max-width: 767px) {
+  .intro-video-fade {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 24%, #000 76%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, #000 24%, #000 76%, transparent 100%);
+  }
+}
+
 /* iOS/Safari draw a native play-button overlay on any video it refuses to
    autoplay (Low Power Mode, Low Data Mode). The hero video is decorative, so
    that control is suppressed rather than left sitting under the headline. */
