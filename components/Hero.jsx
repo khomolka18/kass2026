@@ -126,20 +126,6 @@ const Hero = ({ revealed = true }) => {
           </motion.a>
         </motion.div>
       </div>
-
-      <motion.div
-        className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 transform"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 1.5, repeat: Infinity }}
-      >
-        <div className="flex h-10 w-6 justify-center rounded-full border-2 border-primary">
-          <motion.div
-            className="mt-2 h-2 w-1 rounded-full bg-primary"
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          />
-        </div>
-      </motion.div>
     </section>
   );
 };
